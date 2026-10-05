@@ -1,0 +1,45 @@
+name: Publicar no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Gerar js/config.js a partir dos secrets
+        env:
+          WHATS: ${{ secrets.WHATS }}
+          PIX_KEY: ${{ secrets.PIX_KEY }}
+          PIX_NAME: ${{ secrets.PIX_NAME }}
+          ENDERECO: ${{ secrets.ENDERECO }}
+          LUGAR: ${{ secrets.LUGAR }}
+        run: |
+          node -e '
+            const e = process.env;
+            const cfg = { whats: e.WHATS, pixKey: e.PIX_KEY, pixName: e.PIX_NAME, endereco: e.ENDERECO, lugar: e.LUGAR };
+            require("fs").writeFileSync("js/config.js", "window.CONVITE=" + JSON.stringify(cfg) + ";\n");
+          '
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4

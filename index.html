@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Chá de bebê da Helena</title>
+<meta name="description" content="Sábado, 14 de novembro, às 15h, na Chácara Só Sossego, em Santa Bárbara - MG. Confirme sua presença.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f3ede4">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chá de bebê da Helena">
+<meta property="og:description" content="Sábado, 14 de novembro, às 15h. Confirme sua presença.">
+<meta property="og:image" content="assets/capa.jpg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="frame">
+<div class="stage" id="stage" role="img" aria-label="Convite: chá de bebê da Helena, sábado, 14 de novembro, às 15h, na Chácara Só Sossego, Santa Bárbara">
+  <canvas aria-hidden="true"></canvas>
+  <p class="st k" data-in="4.4" data-dur="1.6">Chá de bebê</p>
+  <h1 class="st name" data-in="3.0" data-dur="2.6">Helena</h1>
+  <p class="st ph" data-in="5.3" data-dur="1.8">uma nova luz está<br>prestes a nascer</p>
+  <div class="st info" data-in="6.6" data-dur="1.8">
+    <div class="d">Sábado · 14 de novembro</div>
+    <div class="h">às 15h</div>
+    <div class="rule"></div>
+    <div class="l">Chácara Só Sossego<br>Santa Bárbara · MG</div>
+  </div>
+  
+</div>
+  </div>
+  <button class="replay" type="button" id="replay">Ver de novo</button>
+
+  <section class="card stack" aria-labelledby="h-local">
+    <div class="place">
+      <div class="dot" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--sage)"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+      </div>
+      <div>
+        <h2 id="h-local">Onde vai ser</h2>
+        <p id="endereco" class="muted">Local a definir. O endereço vai ser enviado aqui e no WhatsApp.</p>
+      </div>
+    </div>
+    <div class="row">
+      <a class="btn small" id="agenda" target="_blank" rel="noopener">Salvar na agenda</a>
+    </div>
+  </section>
+
+  <section class="card stack" aria-labelledby="h-conf">
+    <div>
+      <h2 id="h-conf">Confirme sua presença</h2>
+      <p class="muted">Escreva seu nome e toque em uma opção. Vai abrir o WhatsApp com a mensagem pronta, é só enviar.</p>
+    </div>
+    <div class="row">
+      <label class="field" for="nome">Seu nome
+        <input type="text" id="nome" autocomplete="name" placeholder="Ex.: Tia Cida">
+      </label>
+      <label class="field qty" for="qtd">Quantas pessoas
+        <input type="number" id="qtd" min="1" max="15" value="1">
+      </label>
+    </div>
+    <div class="row">
+      <a class="btn yes" id="sim" target="_blank" rel="noopener" aria-disabled="true">Vou sim</a>
+      <a class="btn no" id="nao" target="_blank" rel="noopener" aria-disabled="true">Não vou conseguir</a>
+    </div>
+    <p class="note" id="conf-hint">Preencha seu nome para liberar os botões.</p>
+  </section>
+
+  <section class="card stack" aria-labelledby="h-pres">
+    <div>
+      <h2 id="h-pres">Lista de presentes</h2>
+      <p class="muted">É opcional. Escolha um item e decida: <b>Mandar Pix</b> com o valor, sem precisar sair pra comprar, ou <b>Vou levar</b>, se preferir comprar e levar no dia. Os dois botões avisam a gente pelo WhatsApp.</p>
+    </div>
+    <ul class="gifts" id="gifts"></ul>
+
+    <div class="pix" id="pixbox" hidden>
+      <p><b id="pix-title">Presente</b></p>
+      <div id="pix-has">
+        <p class="note">Chave Pix (CPF)</p>
+        <code id="pix-key"></code>
+        <p class="note" id="pix-name"></p>
+        <div class="row" style="margin-top:10px">
+          <button class="btn small" type="button" id="copiar">Copiar chave</button>
+          <a class="btn small yes" id="avisar" target="_blank" rel="noopener">Avisar que enviei</a>
+        </div>
+        <p class="ok" id="copiado" aria-live="polite"></p>
+      </div>
+      <p class="note" id="pix-none" hidden>A chave Pix vai aparecer aqui em breve.</p>
+    </div>
+  </section>
+
+  
+  <footer>Esperamos você para receber essa nova luz</footer>
+</div>
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
